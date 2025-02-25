@@ -42,4 +42,10 @@ ThemeData primaryTheme = ThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
     margin: EdgeInsets.only(bottom: 16),
   ),
+  inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: Colors.white,
+    labelStyle: TextStyle(color: AppColors.textColor),
+    prefixIconColor: AppColors.textColor,
+  ),
 );

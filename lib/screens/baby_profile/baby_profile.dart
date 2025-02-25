@@ -39,32 +39,3 @@ class _BabyProfileState extends State<BabyProfile> {
     );
   }
 }
-
-// return Scaffold(
-//       appBar: AppBar(title: StyledTitle("MoguMogu"), centerTitle: true),
-//       body: Padding(
-//         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-//         child: Column(children: [StyledTitle(widget.baby.name)]),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: () {},
-//         backgroundColor: AppColors.accentColor,
-//         foregroundColor: Colors.white,
-//         elevation: 1,
-//         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-//         child: Icon(Icons.add),
-//       ),
-//       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-//       bottomNavigationBar: BottomNavigationBar(
-//         items: [
-//           BottomNavigationBarItem(
-//             icon: Icon(Icons.child_care),
-//             label: 'Babies',
-//           ),
-//           BottomNavigationBarItem(icon: Icon(Icons.food_bank), label: 'Food'),
-//         ],
-//         currentIndex: _selectedIndex,
-//         selectedItemColor: Color.fromRGBO(141, 80, 81, 1),
-//         onTap: _onItemTapped,
-//       ),
-//     );
