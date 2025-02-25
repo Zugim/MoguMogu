@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
-import "package:mogu_mogu/models/baby.dart";
-import "package:mogu_mogu/screens/home/baby_card.dart";
+import "package:mogu_mogu/screens/babies/babies.dart";
+import "package:mogu_mogu/screens/food/food.dart";
 import "package:mogu_mogu/shared/styled_text.dart";
 import "package:mogu_mogu/theme.dart";
 
@@ -12,12 +12,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List babies = [
-    Baby(name: "Meisa", favouriteFood: "Banana", id: 01),
-    Baby(name: "Kai", favouriteFood: "Rice Balls", id: 02),
-    Baby(name: "Mia", favouriteFood: "Milk", id: 03),
-  ];
-
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -26,46 +20,101 @@ class _HomeState extends State<Home> {
     });
   }
 
+  void actionButtonPressed() {
+    if (_selectedIndex == 0) {
+      print("BABIES");
+    }
+    if (_selectedIndex == 1) {
+      print("FOOD");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: StyledTitle("MoguMogu"), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: babies.length,
-                itemBuilder: (_, index) {
-                  return BabyCard(babies[index]);
-                },
+    return Builder(
+      builder: (context) {
+        if (_selectedIndex == 0) {
+          return Scaffold(
+            appBar: AppBar(title: StyledTitle("MoguMogu"), centerTitle: true),
+            floatingActionButton: FloatingActionButton(
+              onPressed: actionButtonPressed,
+              backgroundColor: AppColors.accentColor,
+              foregroundColor: Colors.white,
+              elevation: 1,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100),
               ),
+              child: Icon(Icons.add),
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: AppColors.accentColor,
-        foregroundColor: Colors.white,
-        elevation: 1,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-        child: Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.child_care),
-            label: 'Babies',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.food_bank), label: 'Food'),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Color.fromRGBO(141, 80, 81, 1),
-        onTap: _onItemTapped,
-      ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            bottomNavigationBar: NavigationBar(
+              backgroundColor: AppColors.secondaryColor.withAlpha(150),
+              indicatorColor: AppColors.primaryColor.withAlpha(150),
+              destinations: [
+                NavigationDestination(
+                  icon: Icon(Icons.child_care),
+                  label: 'Babies',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.food_bank),
+                  label: 'Food',
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onDestinationSelected: _onItemTapped,
+            ),
+            body: [Babies(), Food()][_selectedIndex],
+          );
+        } else {
+          return Scaffold(
+            appBar: AppBar(title: StyledTitle("MoguMogu"), centerTitle: true),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            bottomNavigationBar: NavigationBar(
+              backgroundColor: AppColors.secondaryColor.withAlpha(150),
+              indicatorColor: AppColors.primaryColor.withAlpha(150),
+              destinations: [
+                NavigationDestination(
+                  icon: Icon(Icons.child_care),
+                  label: 'Babies',
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.food_bank),
+                  label: 'Food',
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onDestinationSelected: _onItemTapped,
+            ),
+            body: [Babies(), Food()][_selectedIndex],
+          );
+        }
+      },
     );
   }
 }
+
+// Scaffold(
+      // appBar: AppBar(title: StyledTitle("MoguMogu"), centerTitle: true),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: actionButtonPressed,
+      //   backgroundColor: AppColors.accentColor,
+      //   foregroundColor: Colors.white,
+      //   elevation: 1,
+      //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+      //   child: Icon(Icons.add),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // bottomNavigationBar: NavigationBar(
+      //   backgroundColor: AppColors.secondaryColor.withAlpha(150),
+      //   indicatorColor: AppColors.primaryColor.withAlpha(150),
+      //   destinations: [
+      //     NavigationDestination(icon: Icon(Icons.child_care), label: 'Babies'),
+      //     NavigationDestination(icon: Icon(Icons.food_bank), label: 'Food'),
+      //   ],
+      //   selectedIndex: _selectedIndex,
+      //   onDestinationSelected: _onItemTapped,
+      // ),
+      // body: [Babies(), Food()][_selectedIndex],
+//     );

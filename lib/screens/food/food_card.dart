@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mogu_mogu/models/baby.dart';
+import 'package:mogu_mogu/models/food.dart';
 import 'package:mogu_mogu/theme.dart';
 
-class BabyCard extends StatelessWidget {
-  const BabyCard(this.baby, {super.key});
+class FoodCard extends StatelessWidget {
+  const FoodCard(this.foodItem, {super.key});
 
-  final Baby baby;
+  final Food foodItem;
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +14,15 @@ class BabyCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(
           children: [
-            Text(baby.name),
+            Text(foodItem.name),
             Expanded(child: SizedBox()),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => {BabyProfile(baby)}),
+                // );
+              },
               icon: Icon(
                 Icons.arrow_forward,
                 color: AppColors.textColor,
