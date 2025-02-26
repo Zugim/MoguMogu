@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mogu_mogu/models/baby.dart';
 import 'package:mogu_mogu/screens/babies/baby_card.dart';
+import 'package:mogu_mogu/screens/baby_profile/baby_profile.dart';
 import 'package:mogu_mogu/shared/styled_text.dart';
 
 class Babies extends StatefulWidget {
@@ -25,7 +26,17 @@ class _BabiesState extends State<Babies> {
             child: ListView.builder(
               itemCount: babies.length,
               itemBuilder: (_, index) {
-                return BabyCard(babies[index]);
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BabyProfile(babies[index]),
+                      ),
+                    );
+                  },
+                  child: BabyCard(babies[index]),
+                );
               },
             ),
           ),

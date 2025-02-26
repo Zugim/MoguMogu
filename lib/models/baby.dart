@@ -10,10 +10,11 @@ class Baby {
   final int age;
   final String favouriteFood;
   final int id;
+  List triedFoods = [];
 }
 
 List babies = [
-  Baby(name: "Meisa", age: 9, favouriteFood: "Banana", id: 01),
-  Baby(name: "Kai", age: 12, favouriteFood: "Rice Balls", id: 02),
-  Baby(name: "Mia", age: 4, favouriteFood: "Milk", id: 03),
+  Baby(name: "Meisa", age: 9, favouriteFood: "Banana", id: 1),
+  Baby(name: "Kai", age: 12, favouriteFood: "Rice Balls", id: 2),
+  Baby(name: "Mia", age: 4, favouriteFood: "Milk", id: 3),
 ];

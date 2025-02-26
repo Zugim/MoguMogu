@@ -32,16 +32,12 @@ class _AddBabyState extends State<AddBaby> {
       return;
     }
 
-    print(_nameController.text);
-    print(_ageController.text);
-    print(_favFoodController.text);
-
     babies.add(
       Baby(
         name: _nameController.text,
         age: int.parse(_ageController.text),
         favouriteFood: _favFoodController.text,
-        id: 10,
+        id: babies[babies.length - 1].id + 1,
       ),
     );
   }
@@ -66,7 +62,7 @@ class _AddBabyState extends State<AddBaby> {
                   ),
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.child_care),
-                    label: StyledText("Babies Nickname"),
+                    label: StyledText("Baby's Nickname"),
                   ),
                 ),
                 TextField(
@@ -76,7 +72,7 @@ class _AddBabyState extends State<AddBaby> {
                   ),
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.calendar_month),
-                    label: StyledText("Babies Age in Months"),
+                    label: StyledText("Baby's Age in Months"),
                   ),
                 ),
                 TextField(
@@ -86,7 +82,7 @@ class _AddBabyState extends State<AddBaby> {
                   ),
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.food_bank),
-                    label: StyledText("Babies Favorite Food"),
+                    label: StyledText("Baby's Favorite Food"),
                   ),
                 ),
               ],

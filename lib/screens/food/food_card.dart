@@ -11,24 +11,12 @@ class FoodCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Row(
           children: [
             Text(foodItem.name),
             Expanded(child: SizedBox()),
-            IconButton(
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => {BabyProfile(baby)}),
-                // );
-              },
-              icon: Icon(
-                Icons.arrow_forward,
-                color: AppColors.textColor,
-                size: 16,
-              ),
-            ),
+            Icon(Icons.arrow_forward, color: AppColors.textColor, size: 16),
           ],
         ),
       ),

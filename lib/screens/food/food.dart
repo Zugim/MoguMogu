@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mogu_mogu/models/food.dart';
 import 'package:mogu_mogu/screens/food/food_card.dart';
+import 'package:mogu_mogu/screens/food_profile/food_profile.dart';
 import 'package:mogu_mogu/shared/styled_text.dart';
 
 class Food extends StatefulWidget {
@@ -25,7 +26,17 @@ class _FoodState extends State<Food> {
             child: ListView.builder(
               itemCount: foodItems.length,
               itemBuilder: (_, index) {
-                return FoodCard(foodItems[index]);
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FoodProfile(foodItems[index]),
+                      ),
+                    );
+                  },
+                  child: FoodCard(foodItems[index]),
+                );
               },
             ),
           ),
