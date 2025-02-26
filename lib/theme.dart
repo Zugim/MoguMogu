@@ -23,6 +23,7 @@ ThemeData primaryTheme = ThemeData(
       fontSize: 16,
       letterSpacing: 1,
     ),
+    labelMedium: TextStyle(color: Colors.white, fontSize: 16, letterSpacing: 1),
     headlineMedium: TextStyle(
       color: AppColors.textColor,
       fontSize: 16,

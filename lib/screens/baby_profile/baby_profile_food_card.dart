@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mogu_mogu/models/food.dart';
-import 'package:mogu_mogu/theme.dart';
 
 class BabyProfileFoodCard extends StatefulWidget {
   const BabyProfileFoodCard(this.foodItem, {super.key});

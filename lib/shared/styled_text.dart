@@ -17,6 +17,22 @@ class StyledText extends StatelessWidget {
   }
 }
 
+class StyledErrorText extends StatelessWidget {
+  const StyledErrorText(this.text, {super.key});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.lato(
+        textStyle: Theme.of(context).textTheme.labelMedium,
+      ),
+    );
+  }
+}
+
 class StyledHeading extends StatelessWidget {
   const StyledHeading(this.text, {super.key});
 

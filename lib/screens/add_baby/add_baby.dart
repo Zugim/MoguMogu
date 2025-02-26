@@ -97,7 +97,7 @@ class _AddBabyState extends State<AddBaby> {
                     MaterialPageRoute(builder: (context) => Home()),
                   );
                 },
-                child: Text("Submit"),
+                child: StyledErrorText("Submit"),
               ),
             ),
           ],

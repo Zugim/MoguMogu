@@ -37,7 +37,7 @@ class _FoodProfileState extends State<FoodProfile> {
                       children: [
                         StyledTitle(widget.food.name),
                         StyledText(
-                          "Your baby can eat\n${widget.food.name} at\n${widget.food.month} months of age.",
+                          "Your baby can eat\n${widget.food.name.toLowerCase()} at\n${widget.food.month} months of age.",
                         ),
                       ],
                     ),

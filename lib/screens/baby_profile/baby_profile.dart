@@ -58,7 +58,34 @@ class _BabyProfileState extends State<BabyProfile> {
               child: ListView.builder(
                 itemCount: widget.baby.triedFoods.length,
                 itemBuilder: (_, index) {
-                  return BabyProfileFoodCard(widget.baby.triedFoods[index]);
+                  return Dismissible(
+                    direction: DismissDirection.endToStart,
+                    onDismissed: (direction) {
+                      setState(() {
+                        widget.baby.triedFoods.removeAt(index);
+                      });
+                    },
+                    background: Container(
+                      margin: EdgeInsets.only(bottom: 16),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: AppColors.accentColor,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 16),
+                              child: Icon(Icons.delete, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    key: ValueKey(widget.baby.triedFoods[index].name),
+                    child: BabyProfileFoodCard(widget.baby.triedFoods[index]),
+                  );
                 },
               ),
             ),
