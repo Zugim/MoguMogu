@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mogu_mogu/models/baby.dart';
 import 'package:mogu_mogu/models/food.dart';
+import 'package:mogu_mogu/screens/add_food/add_food_card.dart';
 import 'package:mogu_mogu/screens/baby_profile/baby_profile.dart';
-import 'package:mogu_mogu/screens/food/food_card.dart';
 import 'package:mogu_mogu/shared/styled_text.dart';
 
 class AddFood extends StatefulWidget {
@@ -22,23 +22,33 @@ class _AddFoodState extends State<AddFood> {
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-      body: Expanded(
-        child: ListView.builder(
-          itemCount: foodItems.length,
-          itemBuilder: (_, index) {
-            return GestureDetector(
-              onTap: () {
-                widget.baby.triedFoods.add(foodItems[index]);
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BabyProfile(widget.baby),
-                  ),
-                );
-              },
-              child: FoodCard(foodItems[index]),
-            );
-          },
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Expanded(
+          child: ListView.builder(
+            itemCount: foodItems.length,
+            itemBuilder: (_, index) {
+              return GestureDetector(
+                onTap: () {
+                  Food triedFood = Food(
+                    name: foodItems[index].name,
+                    month: foodItems[index].month,
+                    img: foodItems[index].img,
+                    id: foodItems[index].id,
+                  );
+                  widget.baby.triedFoods.add(triedFood);
+                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BabyProfile(widget.baby),
+                    ),
+                  );
+                },
+                child: AddFoodCard(foodItems[index]),
+              );
+            },
+          ),
         ),
       ),
     );

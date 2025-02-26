@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mogu_mogu/models/baby.dart';
 import 'package:mogu_mogu/screens/add_food/add_food.dart';
-import 'package:mogu_mogu/screens/food/food_card.dart';
+import 'package:mogu_mogu/screens/baby_profile/baby_profile_food_card.dart';
 import 'package:mogu_mogu/shared/styled_text.dart';
 import 'package:mogu_mogu/theme.dart';
 
@@ -21,7 +21,7 @@ class _BabyProfileState extends State<BabyProfile> {
       appBar: AppBar(title: StyledTitle("MoguMogu"), centerTitle: true),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => AddFood(widget.baby)),
           );
@@ -58,7 +58,7 @@ class _BabyProfileState extends State<BabyProfile> {
               child: ListView.builder(
                 itemCount: widget.baby.triedFoods.length,
                 itemBuilder: (_, index) {
-                  return FoodCard(widget.baby.triedFoods[index]);
+                  return BabyProfileFoodCard(widget.baby.triedFoods[index]);
                 },
               ),
             ),

@@ -21,20 +21,33 @@ class _FoodProfileState extends State<FoodProfile> {
         children: [
           Card(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Image.asset(
+                  widget.food.img,
+                  width: 180,
+                  height: 180,
+                  fit: BoxFit.cover,
+                ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Image.asset("assets/img/avatar.png", width: 120),
-                      StyledTitle(widget.food.name),
-                    ],
+                  padding: const EdgeInsets.all(16.0),
+                  child: Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        StyledTitle(widget.food.name),
+                        StyledText(
+                          "Your baby can eat\n${widget.food.name} at\n${widget.food.month} months of age.",
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
+          StyledTitle("Recipes"),
+          StyledHeading("Coming Soon..."),
         ],
       ),
     );

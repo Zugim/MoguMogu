@@ -91,7 +91,8 @@ class _AddBabyState extends State<AddBaby> {
               child: FilledButton(
                 onPressed: () {
                   handleSubmit();
-                  Navigator.push(
+                  Navigator.pop(context);
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => Home()),
                   );

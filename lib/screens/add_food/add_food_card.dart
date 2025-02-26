@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mogu_mogu/models/food.dart';
 import 'package:mogu_mogu/theme.dart';
 
-class FoodCard extends StatelessWidget {
-  const FoodCard(this.foodItem, {super.key});
+class AddFoodCard extends StatelessWidget {
+  const AddFoodCard(this.foodItem, {super.key});
 
   final Food foodItem;
 
@@ -22,11 +22,7 @@ class FoodCard extends StatelessWidget {
           Expanded(child: SizedBox()),
           Padding(
             padding: const EdgeInsets.only(right: 16),
-            child: Icon(
-              Icons.arrow_forward,
-              color: AppColors.textColor,
-              size: 16,
-            ),
+            child: Icon(Icons.add, color: AppColors.textColor, size: 16),
           ),
         ],
       ),

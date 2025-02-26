@@ -13,8 +13,4 @@ class Baby {
   List triedFoods = [];
 }
 
-List babies = [
-  Baby(name: "Meisa", age: 9, favouriteFood: "Banana", id: 1),
-  Baby(name: "Kai", age: 12, favouriteFood: "Rice Balls", id: 2),
-  Baby(name: "Mia", age: 4, favouriteFood: "Milk", id: 3),
-];
+List babies = [Baby(name: "Meisa", age: 9, favouriteFood: "Banana", id: 1)];
