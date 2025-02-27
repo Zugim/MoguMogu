@@ -28,7 +28,6 @@ class _AddBabyState extends State<AddBaby> {
     if (_nameController.text.trim().isEmpty ||
         _ageController.text.trim().isEmpty ||
         _favFoodController.text.trim().isEmpty) {
-      print("Please fill in all fields");
       return;
     }
 

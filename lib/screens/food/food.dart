@@ -67,8 +67,6 @@ class _FoodState extends State<Food> {
                           foodItems.where((food) => food.type == newValue),
                         );
                       }
-
-                      print(filteredFoods[0].name);
                     });
                   },
                 ),
