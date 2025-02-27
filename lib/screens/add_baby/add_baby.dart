@@ -37,7 +37,7 @@ class _AddBabyState extends State<AddBaby> {
         name: _nameController.text,
         age: int.parse(_ageController.text),
         favouriteFood: _favFoodController.text,
-        id: babies[babies.length - 1].id + 1,
+        id: babies.isNotEmpty ? babies[babies.length - 1].id + 1 : 1,
       ),
     );
   }
@@ -81,7 +81,7 @@ class _AddBabyState extends State<AddBaby> {
                     textStyle: Theme.of(context).textTheme.bodyMedium,
                   ),
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.food_bank),
+                    prefixIcon: Icon(Icons.favorite),
                     label: StyledText("Baby's Favorite Food"),
                   ),
                 ),

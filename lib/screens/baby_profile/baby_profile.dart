@@ -36,22 +36,64 @@ class _BabyProfileState extends State<BabyProfile> {
       body: Column(
         children: [
           Card(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Image.asset("assets/img/avatar.png", width: 120),
-                      StyledTitle(widget.baby.name),
-                    ],
-                  ),
+            child: SizedBox(
+              height: 160,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/img/avatar.png",
+                      width: 120,
+                      height: 120,
+                      fit: BoxFit.cover,
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          spacing: 4,
+                          children: [
+                            StyledTitle(widget.baby.name),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.calendar_month,
+                                  color: AppColors.textColor,
+                                ),
+                                StyledText("  ${widget.baby.age} months old"),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.favorite,
+                                  color: AppColors.textColor,
+                                ),
+                                StyledText(
+                                  "  Loves ${widget.baby.favouriteFood.toLowerCase()}",
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
-          StyledHeading("Foods your baby has tried..."),
+
+          StyledHeading(
+            widget.baby.triedFoods.isNotEmpty
+                ? "Food your baby has tried..."
+                : "Please add some food...",
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(16),

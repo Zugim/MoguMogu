@@ -20,7 +20,17 @@ class _BabiesState extends State<Babies> {
         children: [
           Container(
             margin: EdgeInsets.only(bottom: 10),
-            child: Row(children: [StyledTitle("Babies")]),
+            child: Row(
+              children: [
+                StyledTitle(
+                  babies.isNotEmpty
+                      ? babies.length > 1
+                          ? "Babies"
+                          : "Baby"
+                      : "Please add your baby...",
+                ),
+              ],
+            ),
           ),
           Expanded(
             child: ListView.builder(

@@ -21,12 +21,12 @@ class _FoodProfileState extends State<FoodProfile> {
         children: [
           Card(
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
                   widget.food.img,
                   width: 180,
-                  height: 180,
+                  height: 160,
                   fit: BoxFit.cover,
                 ),
                 Padding(
@@ -37,7 +37,7 @@ class _FoodProfileState extends State<FoodProfile> {
                       children: [
                         StyledTitle(widget.food.name),
                         StyledText(
-                          "Your baby can eat\n${widget.food.name.toLowerCase()} at\n${widget.food.month} months of age.",
+                          "Your baby can eat\n${widget.food.name.toLowerCase()} at\n${widget.food.month} months old.",
                         ),
                       ],
                     ),
@@ -46,8 +46,10 @@ class _FoodProfileState extends State<FoodProfile> {
               ],
             ),
           ),
-          StyledTitle("Recipes"),
-          StyledHeading("Coming Soon..."),
+          Column(
+            spacing: 16,
+            children: [StyledTitle("Recipes"), StyledHeading("Coming Soon...")],
+          ),
         ],
       ),
     );

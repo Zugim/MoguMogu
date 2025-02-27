@@ -20,7 +20,10 @@ class _FoodState extends State<Food> {
         children: [
           Container(
             margin: EdgeInsets.only(bottom: 10),
-            child: Row(children: [StyledTitle("Baby Safe Food")]),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [StyledTitle("Baby Safe Food")],
+            ),
           ),
           Expanded(
             child: ListView.builder(

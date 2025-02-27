@@ -38,6 +38,7 @@ class _AddFoodState extends State<AddFood> {
                           month: foodItems[index].month,
                           img: foodItems[index].img,
                           id: foodItems[index].id,
+                          type: foodItems[index].type,
                         );
 
                         if (!widget.baby.triedFoods.any(
